@@ -2,6 +2,11 @@
 @author Winry
 @date 2021-11-04
 
+code plan for the future:
+    create Vehicle class
+    make a wander point
+    make wanderRadius circle, add point in the dot
+
  */
 let font, vehicle
 
@@ -19,6 +24,11 @@ function draw() {
     background(234, 34, 24)
 
     vehicle.show()
+    vehicle.edges()
     vehicle.update()
-    vehicle.applyForce(new p5.Vector(0, 0.1))
+    vehicle.wander()
+}
+
+function mousePressed() {
+    noLoop()
 }
