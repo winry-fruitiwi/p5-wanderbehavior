@@ -8,7 +8,9 @@ code plan for the future:
     make wanderRadius circle, add point in the dot
 
  */
-let font, vehicle
+let font
+let vehicles = []
+
 
 function preload() {
     font = loadFont('data/Meiryo-01.ttf')
@@ -17,16 +19,21 @@ function preload() {
 function setup() {
     createCanvas(640, 360)
     colorMode(HSB, 360, 100, 100, 100)
-    vehicle = new Vehicle(width/2, height/2)
+    for (let i = 0; i < 100; i++) {
+        vehicles.push(new Vehicle(random(width), random(height)))
+    }
 }
+
 
 function draw() {
     background(234, 34, 24)
 
-    vehicle.show()
-    vehicle.edges()
-    vehicle.update()
-    vehicle.wander()
+    for (let vehicle of vehicles) {
+        vehicle.show()
+        vehicle.edges()
+        vehicle.update()
+        vehicle.wander()
+    }
 }
 
 function mousePressed() {
